@@ -7,6 +7,7 @@ import androidx.test.espresso.matcher.ViewMatchers
 import com.example.todoapp.test.essentials.BaseTest
 import android.view.View
 import android.widget.CompoundButton
+import com.example.android.architecture.blueprints.todoapp.R
 
 /**
  * Demonstrates Espresso UI Properties [ViewMatchers].

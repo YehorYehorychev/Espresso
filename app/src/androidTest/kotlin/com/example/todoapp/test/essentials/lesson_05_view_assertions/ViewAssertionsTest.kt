@@ -26,7 +26,20 @@ class ViewAssertionsTest : BaseTest() {
     }
 
     /**
-     * matches() ViewAssertion asserts that view with a given matcher exists in a view hierarchy.
+     * matches() V       - https://dl.google.com/dl/android/maven2/com/azimolabs/conditionwatcher/conditionwatcher/0.2/conditionwatcher-0.2.pom
+     *      Required by:
+     *          project :app
+     *
+     * * Try:
+     * > Run with --stacktrace option to get the stack trace.
+     * > Run with --info or --debug option to get more log output.
+     * > Run with --scan to get full insights.
+     * ==============================================================================
+     *
+     * * Get more help at https://help.gradle.org
+     *
+     * BUILD FAILED in 4s
+     * 46 actionable tasks: 7 executed, 39 up-to-dateiewAssertion asserts that view with a given matcher exists in a view hierarchy.
      */
     @Test
     fun matchesAssertion() {
@@ -34,5 +47,11 @@ class ViewAssertionsTest : BaseTest() {
         onView(withId(R.id.fab_add_task)).check(matches(isClickable()))
         onView(allOf(withId(R.id.myWebPage), withText(startsWith("Visit my page:"))))
             .check(matches(hasLinks()))
+    }
+
+    @Test
+    fun verifyActiveTasksText() {
+        onView(withId(R.id.statistics))
+            .check(matches(withText("Active tasks: 1")))
     }
 }
