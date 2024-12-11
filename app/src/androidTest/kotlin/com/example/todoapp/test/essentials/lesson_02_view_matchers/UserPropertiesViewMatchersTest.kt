@@ -27,6 +27,11 @@ class UserPropertiesViewMatchersTest : BaseTest() {
         onView(withId(R.id.fab_add_task))
     }
 
+    @Test
+    fun userTasksListWithId() {
+        onView(withId(R.id.noTasksMain))
+    }
+
     /**
      * [ViewMatchers.withText] matches a [View] based on text.
      */
