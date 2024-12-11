@@ -32,6 +32,12 @@ class UserPropertiesViewMatchersTest : BaseTest() {
         onView(withId(R.id.noTasksMain))
     }
 
+    @Test
+    fun userHaveNoTasksAssertionTest() {
+        onView(withId(R.id.noTasksMain))
+            .check(matches(withText("You have no TO-DOs!")))
+    }
+
     /**
      * [ViewMatchers.withText] matches a [View] based on text.
      */
