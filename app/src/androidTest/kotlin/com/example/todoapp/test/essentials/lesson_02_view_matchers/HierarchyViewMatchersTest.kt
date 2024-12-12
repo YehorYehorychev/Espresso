@@ -29,7 +29,7 @@ class HierarchyViewMatchersTest : BaseTest() {
      */
     @Test
     fun hierarchyWithChild() {
-        onView(withChild(withText("item 2")))
+        onView(withChild(withText("task 2")))
     }
 
     /**

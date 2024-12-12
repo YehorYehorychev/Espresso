@@ -2,13 +2,14 @@
 
 package com.example.todoapp.test.essentials.lesson_02_view_matchers
 
-import android.view.inputmethod.EditorInfo
-import org.junit.Test
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.matcher.ViewMatchers.*
-import androidx.test.espresso.matcher.ViewMatchers
-import com.example.todoapp.test.essentials.BaseTest
 import android.view.View
+import android.view.inputmethod.EditorInfo
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.hasImeAction
+import androidx.test.espresso.matcher.ViewMatchers.supportsInputMethods
+import com.example.todoapp.test.essentials.BaseTest
+import org.junit.Test
 
 /**
  * Demonstrates Espresso Input view matchers.
