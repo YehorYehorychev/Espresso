@@ -38,6 +38,10 @@ class ClickViewActionsTest : BaseTest() {
     @Test
     fun clickViewActionsClick() {
         onView(withId(R.id.fab_add_task)).perform(click())
+    }
+
+    @Test
+    fun addNewTaskTest() {
         onView(withId(R.id.add_task_title))
             .perform(typeText("Task 1"), closeSoftKeyboard())
         onView(withId(R.id.fab_edit_task_done)).perform(click())
