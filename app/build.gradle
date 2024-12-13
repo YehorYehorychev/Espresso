@@ -1,9 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-//apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.example.android.architecture.blueprints.todoapp"
@@ -13,13 +12,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
-        // The following argument makes the Android Test Orchestrator run its
-        // "pm clear" command after each test invocation. This command ensures
-        // that the app's state is completely cleared between tests.
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
         multiDexEnabled = true
-        multiDexKeepProguard file('multi-dex-keep.txt')
     }
 
     buildFeatures {
@@ -29,25 +24,25 @@ android {
     buildTypes {
         debug {
             minifyEnabled false
-            // Uses new built-in shrinker http://tools.android.com/tech-docs/new-build-system/built-in-shrinker
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
         }
-
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
         }
     }
 
     testOptions {
         execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        unitTests.all {
+            testLogging {
+                events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+            }
+        }
     }
 
     flavorDimensions "default"
 
-    // If you need to add more flavors, consider using flavor dimensions.
     productFlavors {
         mock {
             dimension "default"
@@ -58,86 +53,46 @@ android {
         }
     }
 
-    // Remove mockRelease as it's not needed.
-    android.variantFilter { variant ->
-        if (variant.buildType.name == 'release'
-                && variant.getFlavors().get(0).name == 'mock') {
-            variant.setIgnore(true)
-        }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
-    // Always show the result of every unit test, even if it passes.
-    testOptions.unitTests.all {
-        testLogging {
-            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
-        }
+    kotlinOptions {
+        jvmTarget = "17"
     }
 
-    useLibrary 'android.test.runner'
-    useLibrary 'android.test.base'
-    useLibrary 'android.test.mock'
     namespace 'com.example.android.architecture.blueprints.todoapp'
 }
 
-/*
- Dependency versions are defined in the top level build.gradle file. This helps keeping track of
- all versions in a single place. This improves readability and helps managing project complexity.
- */
 dependencies {
-    // App's dependencies, including test
     implementation 'androidx.preference:preference-ktx:1.2.1'
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.recyclerview:recyclerview:1.3.2'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation "androidx.test.espresso:espresso-idling-resource:3.6.1"
-    //noinspection GradleDependency
-    implementation ("com.google.guava:guava:$rootProject.guavaVersion") {
-        exclude group: "org.checkerframework", module: "checker-compat-qual"
-        exclude group: "com.google.errorprone", module: "error_prone_annotations"
-        exclude group: "com.google.guava", module: "failureaccess"
-    }
-    //noinspection GradleDependency
-    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
-    implementation 'androidx.legacy:legacy-preference-v14:1.0.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.vectordrawable:vectordrawable:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.15.0'
+
+    // Room
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
     annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
 
-    // AndroidX Test Orchestrator
-    androidTestUtil "androidx.test:orchestrator:$rootProject.androidXTestVersion"
-
-    // AndroidX Test runner and rules
-    androidTestImplementation "androidx.test:runner:1.6.2"
-    androidTestImplementation "androidx.test:rules:1.6.1"
-    androidTestImplementation 'androidx.room:room-testing:2.6.1'
-    androidTestImplementation "androidx.test.ext:junit:1.2.1"
-
-    // Espresso UI Testing
-    androidTestImplementation "androidx.test.espresso:espresso-core:3.6.1"
-    androidTestImplementation "androidx.test.espresso:espresso-contrib:3.6.1"
-    androidTestImplementation "androidx.test.espresso:espresso-intents:3.6.1"
-    androidTestImplementation "androidx.test.espresso:espresso-web:3.6.1"
-    androidTestImplementation "androidx.test.espresso:espresso-accessibility:3.6.1"
-    androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:3.6.1"
-    androidTestImplementation "androidx.test:core:1.6.1"
-    androidTestImplementation "androidx.test.ext:truth:1.6.0"
-    //noinspection GradleDependency
-    androidTestImplementation "com.google.guava:guava:$rootProject.guavaVersion"
-
-    // Accessibility and UI Automator dependencies
+    // Test dependencies
+    androidTestImplementation "androidx.test:runner:$rootProject.runnerVersionAndroidX"
+    androidTestImplementation "androidx.test:rules:$rootProject.rulesVersionAndroidX"
+    androidTestImplementation "androidx.test.ext:junit:$rootProject.jUnitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersionAndroidX"
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.3.0'
 
-    implementation "com.squareup.picasso:picasso:2.71828"
+    androidTestUtil "androidx.test:orchestrator:1.5.1"
 
-    // ConditionalWatcher dependency
+    implementation "com.squareup.picasso:picasso:2.71828"
     androidTestImplementation "com.azimolabs.conditionwatcher:conditionwatcher:0.2"
-    implementation "androidx.core:core-ktx:1.15.0"
-    //noinspection GradleDependency
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+
 repositories {
     mavenCentral()
 }
