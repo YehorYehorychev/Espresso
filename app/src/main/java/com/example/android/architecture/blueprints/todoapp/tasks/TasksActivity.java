@@ -20,14 +20,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.android.architecture.blueprints.todoapp.Injection;
-import com.example.android.architecture.blueprints.todoapp.R;
-import com.example.android.architecture.blueprints.todoapp.settings.SettingsActivity;
-import com.example.android.architecture.blueprints.todoapp.statistics.StatisticsActivity;
-import com.example.android.architecture.blueprints.todoapp.util.ActivityUtils;
-import com.example.android.architecture.blueprints.todoapp.util.EspressoIdlingResource;
-import com.google.android.material.navigation.NavigationView;
-
 import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +27,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.test.espresso.IdlingResource;
+
+import com.example.android.architecture.blueprints.todoapp.Injection;
+import com.example.android.architecture.blueprints.todoapp.R;
+import com.example.android.architecture.blueprints.todoapp.settings.SettingsActivity;
+import com.example.android.architecture.blueprints.todoapp.statistics.StatisticsActivity;
+import com.example.android.architecture.blueprints.todoapp.util.ActivityUtils;
+import com.example.android.architecture.blueprints.todoapp.util.EspressoIdlingResource;
+import com.google.android.material.navigation.NavigationView;
 
 public class TasksActivity extends AppCompatActivity {
 
@@ -53,6 +53,7 @@ public class TasksActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
+        assert ab != null;
         ab.setHomeAsUpIndicator(R.drawable.ic_menu);
         ab.setDisplayHomeAsUpEnabled(true);
 

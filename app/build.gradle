@@ -66,6 +66,7 @@ android {
 }
 
 dependencies {
+    // Core dependencies
     implementation 'androidx.preference:preference-ktx:1.2.1'
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.cardview:cardview:1.0.0'
@@ -75,9 +76,12 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.15.0'
+    implementation 'com.google.guava:guava:31.1-android'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     // Room
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    implementation 'androidx.compose.ui:ui-test-android:1.7.6'
     annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
 
     // Test dependencies
@@ -85,14 +89,18 @@ dependencies {
     androidTestImplementation "androidx.test:rules:$rootProject.rulesVersionAndroidX"
     androidTestImplementation "androidx.test.ext:junit:$rootProject.jUnitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.espressoVersionAndroidX"
+    androidTestImplementation "androidx.test.espresso:espresso-idling-resource:$rootProject.espressoVersionAndroidX"
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.3.0'
 
+    // Test orchestrator
     androidTestUtil "androidx.test:orchestrator:1.5.1"
 
+    // Additional dependencies
     implementation "com.squareup.picasso:picasso:2.71828"
     androidTestImplementation "com.azimolabs.conditionwatcher:conditionwatcher:0.2"
 }
 
 repositories {
     mavenCentral()
+    google()
 }
