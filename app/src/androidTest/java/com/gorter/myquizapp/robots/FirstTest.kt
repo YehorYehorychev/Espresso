@@ -18,8 +18,10 @@ class FirstTest {
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun myTest() {
+    fun welcomeScreenAssertionTest() {
         onView(withText("Welcome!"))
+            .check(matches(isDisplayed()))
+        onView(withText("Please enter your name"))
             .check(matches(isDisplayed()))
     }
 }
