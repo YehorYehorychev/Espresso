@@ -5,7 +5,7 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="myTest()">
+      <SelectionState runConfigName="welcomeScreenAssertionTest2()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
