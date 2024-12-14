@@ -5,8 +5,8 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.UiDevice
-import com.gorter.myquizapp.BaseTest
 import com.gorter.myquizapp.R
+import com.gorter.myquizapp.BaseTest
 import org.junit.Before
 import org.junit.Test
 

@@ -9,10 +9,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.content.IntentCompat
 import com.gorter.myquizapp.Constants.CORRECT_ANSWERS
 import com.gorter.myquizapp.Constants.TOTAL_QUESTIONS
 import com.gorter.myquizapp.Constants.USER_NAME

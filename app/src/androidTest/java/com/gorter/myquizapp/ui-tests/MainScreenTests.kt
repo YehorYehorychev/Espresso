@@ -1,4 +1,4 @@
-package com.gorter.myquizapp.robots
+package com.gorter.myquizapp.`ui-tests`
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
@@ -6,19 +6,11 @@ import androidx.test.espresso.matcher.ViewMatchers.isClickable
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import androidx.test.ext.junit.rules.ActivityScenarioRule
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.gorter.myquizapp.MainActivity
 import com.gorter.myquizapp.R
-import org.junit.Rule
+import com.gorter.myquizapp.BaseTest
 import org.junit.Test
-import org.junit.runner.RunWith
 
-@RunWith(AndroidJUnit4::class)
-class FirstTest {
-
-    @get:Rule
-    val activityRule = ActivityScenarioRule(MainActivity::class.java)
+class MainScreenTests : BaseTest() {
 
     @Test
     fun welcomeScreenAssertionTest() {
