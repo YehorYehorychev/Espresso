@@ -1,4 +1,4 @@
-package com.gorter.myquizapp.ui
+package com.gorter.myquizapp.`ui-tests`
 
 import org.junit.Test
 import androidx.test.espresso.Espresso.onView
