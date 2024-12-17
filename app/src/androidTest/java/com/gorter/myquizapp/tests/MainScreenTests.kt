@@ -1,4 +1,4 @@
-package com.gorter.myquizapp.`ui-tests`
+package com.gorter.myquizapp.tests
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
