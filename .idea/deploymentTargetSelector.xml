@@ -5,13 +5,10 @@
       <SelectionState runConfigName="QuizApp">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="clickViewActionsLongClick()">
+      <SelectionState runConfigName="doesNotExistAssertion()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="clickViewActionsClick()">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="welcomeScreenAssertionTest()">
+      <SelectionState runConfigName="matchesAssertion()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
