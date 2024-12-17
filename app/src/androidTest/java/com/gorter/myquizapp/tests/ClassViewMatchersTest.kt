@@ -1,4 +1,4 @@
-package com.gorter.myquizapp.`ui-tests`
+package com.gorter.myquizapp.tests
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.junit.Test

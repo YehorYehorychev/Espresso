@@ -1,4 +1,4 @@
-package com.gorter.myquizapp.`ui-tests`
+package com.gorter.myquizapp.tests
 
 import android.view.View
 import android.widget.Spinner
