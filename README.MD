@@ -6,17 +6,33 @@
 The tests in this project are Espresso tests, and uses a Robot Pattern test design. 
 The tests can be run with the IDE or using:
 ```./gradlew connectedAndroidTest -Pandroid.testInstrumentationRunnerArguments.size=large```
-All new UI tests must be annotated with `@LargeTest`
 
-### Screenshot tests
-There are also screenshot tests, these will take and compare a screenshot of the given activity.
-To *record* the screenshots run:
-```./gradlew executeScreenshotTests -Pandroid.testInstrumentationRunnerArguments.size=small -Precord```
+### 🔖 Note:
+All new UI tests must be annotated with:
 
-To *execute* the screenshot tests run:
-```./gradlew executeScreenshotTests -Pandroid.testInstrumentationRunnerArguments.size=small```
+``@LargeTest``
 
-All new screenshot tests must be annotated with `@SmallTest`.
+## 🖼 Screenshot Tests
+
+The project also includes screenshot tests. These tests take a screenshot of the given activity and compare it with a previously recorded baseline.
+
+## 📸 Recording Screenshots
+
+To record new baseline screenshots:
+
+``./gradlew executeScreenshotTests -Pandroid.testInstrumentationRunnerArguments.size=small -Precord``
+
+## ✅ Running Screenshot Tests
+
+To execute the screenshot tests and compare against the baseline:
+
+``./gradlew executeScreenshotTests -Pandroid.testInstrumentationRunnerArguments.size=small``
+
+
+🔖 Note:
+All new screenshot tests must be annotated with:
+
+@SmallTest
 
 ### Examples of the most frequent espresso methods:
 
