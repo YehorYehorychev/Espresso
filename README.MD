@@ -32,7 +32,7 @@ To execute the screenshot tests and compare against the baseline:
 🔖 Note:
 All new screenshot tests must be annotated with:
 
-@SmallTest
+``@SmallTest``
 
 ### Examples of the most frequent espresso methods:
 
